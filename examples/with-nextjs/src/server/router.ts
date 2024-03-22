@@ -5,7 +5,11 @@ import { OpenApiMeta } from 'trpc-openapi';
 import { v4 as uuid } from 'uuid';
 import { z } from 'zod';
 
+import { ClientController } from './client/client.controller';
+import { ClientZodSchema, clientReserveValidation } from './client/client.validation';
 import { Post, User, database } from './database';
+import { db } from './db';
+import { createTRPCRouter, publicProcedure } from './trpc';
 
 const jwtSecret = uuid();
 
@@ -48,7 +52,7 @@ export const createContext = async ({ req, res }: CreateNextContextOptions): Pro
   return { user, requestId };
 };
 
-const publicProcedure = t.procedure;
+const publicProcedures = t.procedure;
 const protectedProcedure = t.procedure.use(({ ctx, next }) => {
   if (!ctx.user) {
     throw new TRPCError({
@@ -60,7 +64,7 @@ const protectedProcedure = t.procedure.use(({ ctx, next }) => {
 });
 
 const authRouter = t.router({
-  register: publicProcedure
+  register: publicProcedures
     .meta({
       openapi: {
         method: 'POST',
@@ -109,7 +113,7 @@ const authRouter = t.router({
 
       return { user: { id: user.id, email: user.email, name: user.name } };
     }),
-  login: publicProcedure
+  login: publicProcedures
     .meta({
       openapi: {
         method: 'POST',
@@ -155,7 +159,7 @@ const authRouter = t.router({
 });
 
 const usersRouter = t.router({
-  getUsers: publicProcedure
+  getUsers: publicProcedures
     .meta({
       openapi: {
         method: 'GET',
@@ -185,7 +189,7 @@ const usersRouter = t.router({
 
       return { users };
     }),
-  getUserById: publicProcedure
+  getUserById: publicProcedures
     .meta({
       openapi: {
         method: 'GET',
@@ -220,10 +224,45 @@ const usersRouter = t.router({
 
       return { user };
     }),
+  getBCEnginners: publicProcedures
+    .meta({
+      openapi: {
+        method: 'GET',
+        path: '/users/bc/{id}',
+        tags: ['users'],
+        summary: 'Read a user by id',
+      },
+    })
+    .input(
+      z.object({
+        id: z.string().uuid(),
+      }),
+    )
+    .output(
+      z.object({
+        user: z.object({
+          id: z.string().uuid(),
+          email: z.string().email(),
+          name: z.string(),
+        }),
+      }),
+    )
+    .query(({ input }) => {
+      const user = database.users.find((_user) => _user.id === input.id);
+
+      if (!user) {
+        throw new TRPCError({
+          message: 'User not found',
+          code: 'NOT_FOUND',
+        });
+      }
+
+      return { user };
+    }),
 });
 
 const postsRouter = t.router({
-  getPosts: publicProcedure
+  getPosts: publicProcedures
     .meta({
       openapi: {
         method: 'GET',
@@ -259,7 +298,7 @@ const postsRouter = t.router({
 
       return { posts };
     }),
-  getPostById: publicProcedure
+  getPostById: publicProcedures
     .meta({
       openapi: {
         method: 'GET',

@@ -1,0 +1,35 @@
+import type { GraphQLResolveInfo } from "graphql";
+import { AggregateShiftManagementArgs } from "./args/AggregateShiftManagementArgs";
+import { CreateManyShiftManagementArgs } from "./args/CreateManyShiftManagementArgs";
+import { CreateOneShiftManagementArgs } from "./args/CreateOneShiftManagementArgs";
+import { DeleteManyShiftManagementArgs } from "./args/DeleteManyShiftManagementArgs";
+import { DeleteOneShiftManagementArgs } from "./args/DeleteOneShiftManagementArgs";
+import { FindFirstShiftManagementArgs } from "./args/FindFirstShiftManagementArgs";
+import { FindFirstShiftManagementOrThrowArgs } from "./args/FindFirstShiftManagementOrThrowArgs";
+import { FindManyShiftManagementArgs } from "./args/FindManyShiftManagementArgs";
+import { FindUniqueShiftManagementArgs } from "./args/FindUniqueShiftManagementArgs";
+import { FindUniqueShiftManagementOrThrowArgs } from "./args/FindUniqueShiftManagementOrThrowArgs";
+import { GroupByShiftManagementArgs } from "./args/GroupByShiftManagementArgs";
+import { UpdateManyShiftManagementArgs } from "./args/UpdateManyShiftManagementArgs";
+import { UpdateOneShiftManagementArgs } from "./args/UpdateOneShiftManagementArgs";
+import { UpsertOneShiftManagementArgs } from "./args/UpsertOneShiftManagementArgs";
+import { ShiftManagement } from "../../../models/ShiftManagement";
+import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
+import { AggregateShiftManagement } from "../../outputs/AggregateShiftManagement";
+import { ShiftManagementGroupBy } from "../../outputs/ShiftManagementGroupBy";
+export declare class ShiftManagementCrudResolver {
+    aggregateShiftManagement(ctx: any, info: GraphQLResolveInfo, args: AggregateShiftManagementArgs): Promise<AggregateShiftManagement>;
+    createManyShiftManagement(ctx: any, info: GraphQLResolveInfo, args: CreateManyShiftManagementArgs): Promise<AffectedRowsOutput>;
+    createOneShiftManagement(ctx: any, info: GraphQLResolveInfo, args: CreateOneShiftManagementArgs): Promise<ShiftManagement>;
+    deleteManyShiftManagement(ctx: any, info: GraphQLResolveInfo, args: DeleteManyShiftManagementArgs): Promise<AffectedRowsOutput>;
+    deleteOneShiftManagement(ctx: any, info: GraphQLResolveInfo, args: DeleteOneShiftManagementArgs): Promise<ShiftManagement | null>;
+    findFirstShiftManagement(ctx: any, info: GraphQLResolveInfo, args: FindFirstShiftManagementArgs): Promise<ShiftManagement | null>;
+    findFirstShiftManagementOrThrow(ctx: any, info: GraphQLResolveInfo, args: FindFirstShiftManagementOrThrowArgs): Promise<ShiftManagement | null>;
+    shiftManagements(ctx: any, info: GraphQLResolveInfo, args: FindManyShiftManagementArgs): Promise<ShiftManagement[]>;
+    shiftManagement(ctx: any, info: GraphQLResolveInfo, args: FindUniqueShiftManagementArgs): Promise<ShiftManagement | null>;
+    getShiftManagement(ctx: any, info: GraphQLResolveInfo, args: FindUniqueShiftManagementOrThrowArgs): Promise<ShiftManagement | null>;
+    groupByShiftManagement(ctx: any, info: GraphQLResolveInfo, args: GroupByShiftManagementArgs): Promise<ShiftManagementGroupBy[]>;
+    updateManyShiftManagement(ctx: any, info: GraphQLResolveInfo, args: UpdateManyShiftManagementArgs): Promise<AffectedRowsOutput>;
+    updateOneShiftManagement(ctx: any, info: GraphQLResolveInfo, args: UpdateOneShiftManagementArgs): Promise<ShiftManagement | null>;
+    upsertOneShiftManagement(ctx: any, info: GraphQLResolveInfo, args: UpsertOneShiftManagementArgs): Promise<ShiftManagement>;
+}

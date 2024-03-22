@@ -1,0 +1,35 @@
+import { BoolFilter } from "../inputs/BoolFilter";
+import { DateTimeFilter } from "../inputs/DateTimeFilter";
+import { DateTimeNullableFilter } from "../inputs/DateTimeNullableFilter";
+import { EnumApprovalFilter } from "../inputs/EnumApprovalFilter";
+import { EnumCosplayContentNullableListFilter } from "../inputs/EnumCosplayContentNullableListFilter";
+import { EnumCupNumberNullableFilter } from "../inputs/EnumCupNumberNullableFilter";
+import { EnumLanguageTypeNullableListFilter } from "../inputs/EnumLanguageTypeNullableListFilter";
+import { EnumPriorityOrderNullableFilter } from "../inputs/EnumPriorityOrderNullableFilter";
+import { StringFilter } from "../inputs/StringFilter";
+import { StringNullableFilter } from "../inputs/StringNullableFilter";
+export declare class CastScalarWhereInput {
+    AND?: CastScalarWhereInput[] | undefined;
+    OR?: CastScalarWhereInput[] | undefined;
+    NOT?: CastScalarWhereInput[] | undefined;
+    id?: StringFilter | undefined;
+    nick_name?: StringFilter | undefined;
+    telephone_number?: StringNullableFilter | undefined;
+    birthday?: DateTimeNullableFilter | undefined;
+    locate?: StringNullableFilter | undefined;
+    language_type?: EnumLanguageTypeNullableListFilter | undefined;
+    language_other?: StringNullableFilter | undefined;
+    cosplay_guide?: BoolFilter | undefined;
+    cosplay_content?: EnumCosplayContentNullableListFilter | undefined;
+    cosplay_other?: StringNullableFilter | undefined;
+    cup_number?: EnumCupNumberNullableFilter | undefined;
+    memo?: StringNullableFilter | undefined;
+    user_rank_id?: StringFilter | undefined;
+    is_display?: BoolFilter | undefined;
+    homepage_recommended_priority?: EnumPriorityOrderNullableFilter | undefined;
+    profile_approval_by_admin?: EnumApprovalFilter | undefined;
+    twitter_user_name?: StringNullableFilter | undefined;
+    instagram_user_name?: StringNullableFilter | undefined;
+    created_at?: DateTimeFilter | undefined;
+    updated_at?: DateTimeFilter | undefined;
+}

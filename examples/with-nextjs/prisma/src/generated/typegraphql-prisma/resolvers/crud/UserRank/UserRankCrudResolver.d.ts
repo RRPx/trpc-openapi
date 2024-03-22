@@ -1,0 +1,35 @@
+import type { GraphQLResolveInfo } from "graphql";
+import { AggregateUserRankArgs } from "./args/AggregateUserRankArgs";
+import { CreateManyUserRankArgs } from "./args/CreateManyUserRankArgs";
+import { CreateOneUserRankArgs } from "./args/CreateOneUserRankArgs";
+import { DeleteManyUserRankArgs } from "./args/DeleteManyUserRankArgs";
+import { DeleteOneUserRankArgs } from "./args/DeleteOneUserRankArgs";
+import { FindFirstUserRankArgs } from "./args/FindFirstUserRankArgs";
+import { FindFirstUserRankOrThrowArgs } from "./args/FindFirstUserRankOrThrowArgs";
+import { FindManyUserRankArgs } from "./args/FindManyUserRankArgs";
+import { FindUniqueUserRankArgs } from "./args/FindUniqueUserRankArgs";
+import { FindUniqueUserRankOrThrowArgs } from "./args/FindUniqueUserRankOrThrowArgs";
+import { GroupByUserRankArgs } from "./args/GroupByUserRankArgs";
+import { UpdateManyUserRankArgs } from "./args/UpdateManyUserRankArgs";
+import { UpdateOneUserRankArgs } from "./args/UpdateOneUserRankArgs";
+import { UpsertOneUserRankArgs } from "./args/UpsertOneUserRankArgs";
+import { UserRank } from "../../../models/UserRank";
+import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
+import { AggregateUserRank } from "../../outputs/AggregateUserRank";
+import { UserRankGroupBy } from "../../outputs/UserRankGroupBy";
+export declare class UserRankCrudResolver {
+    aggregateUserRank(ctx: any, info: GraphQLResolveInfo, args: AggregateUserRankArgs): Promise<AggregateUserRank>;
+    createManyUserRank(ctx: any, info: GraphQLResolveInfo, args: CreateManyUserRankArgs): Promise<AffectedRowsOutput>;
+    createOneUserRank(ctx: any, info: GraphQLResolveInfo, args: CreateOneUserRankArgs): Promise<UserRank>;
+    deleteManyUserRank(ctx: any, info: GraphQLResolveInfo, args: DeleteManyUserRankArgs): Promise<AffectedRowsOutput>;
+    deleteOneUserRank(ctx: any, info: GraphQLResolveInfo, args: DeleteOneUserRankArgs): Promise<UserRank | null>;
+    findFirstUserRank(ctx: any, info: GraphQLResolveInfo, args: FindFirstUserRankArgs): Promise<UserRank | null>;
+    findFirstUserRankOrThrow(ctx: any, info: GraphQLResolveInfo, args: FindFirstUserRankOrThrowArgs): Promise<UserRank | null>;
+    userRanks(ctx: any, info: GraphQLResolveInfo, args: FindManyUserRankArgs): Promise<UserRank[]>;
+    userRank(ctx: any, info: GraphQLResolveInfo, args: FindUniqueUserRankArgs): Promise<UserRank | null>;
+    getUserRank(ctx: any, info: GraphQLResolveInfo, args: FindUniqueUserRankOrThrowArgs): Promise<UserRank | null>;
+    groupByUserRank(ctx: any, info: GraphQLResolveInfo, args: GroupByUserRankArgs): Promise<UserRankGroupBy[]>;
+    updateManyUserRank(ctx: any, info: GraphQLResolveInfo, args: UpdateManyUserRankArgs): Promise<AffectedRowsOutput>;
+    updateOneUserRank(ctx: any, info: GraphQLResolveInfo, args: UpdateOneUserRankArgs): Promise<UserRank | null>;
+    upsertOneUserRank(ctx: any, info: GraphQLResolveInfo, args: UpsertOneUserRankArgs): Promise<UserRank>;
+}

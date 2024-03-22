@@ -1,0 +1,35 @@
+import type { GraphQLResolveInfo } from "graphql";
+import { AggregateChatMessageArgs } from "./args/AggregateChatMessageArgs";
+import { CreateManyChatMessageArgs } from "./args/CreateManyChatMessageArgs";
+import { CreateOneChatMessageArgs } from "./args/CreateOneChatMessageArgs";
+import { DeleteManyChatMessageArgs } from "./args/DeleteManyChatMessageArgs";
+import { DeleteOneChatMessageArgs } from "./args/DeleteOneChatMessageArgs";
+import { FindFirstChatMessageArgs } from "./args/FindFirstChatMessageArgs";
+import { FindFirstChatMessageOrThrowArgs } from "./args/FindFirstChatMessageOrThrowArgs";
+import { FindManyChatMessageArgs } from "./args/FindManyChatMessageArgs";
+import { FindUniqueChatMessageArgs } from "./args/FindUniqueChatMessageArgs";
+import { FindUniqueChatMessageOrThrowArgs } from "./args/FindUniqueChatMessageOrThrowArgs";
+import { GroupByChatMessageArgs } from "./args/GroupByChatMessageArgs";
+import { UpdateManyChatMessageArgs } from "./args/UpdateManyChatMessageArgs";
+import { UpdateOneChatMessageArgs } from "./args/UpdateOneChatMessageArgs";
+import { UpsertOneChatMessageArgs } from "./args/UpsertOneChatMessageArgs";
+import { ChatMessage } from "../../../models/ChatMessage";
+import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
+import { AggregateChatMessage } from "../../outputs/AggregateChatMessage";
+import { ChatMessageGroupBy } from "../../outputs/ChatMessageGroupBy";
+export declare class ChatMessageCrudResolver {
+    aggregateChatMessage(ctx: any, info: GraphQLResolveInfo, args: AggregateChatMessageArgs): Promise<AggregateChatMessage>;
+    createManyChatMessage(ctx: any, info: GraphQLResolveInfo, args: CreateManyChatMessageArgs): Promise<AffectedRowsOutput>;
+    createOneChatMessage(ctx: any, info: GraphQLResolveInfo, args: CreateOneChatMessageArgs): Promise<ChatMessage>;
+    deleteManyChatMessage(ctx: any, info: GraphQLResolveInfo, args: DeleteManyChatMessageArgs): Promise<AffectedRowsOutput>;
+    deleteOneChatMessage(ctx: any, info: GraphQLResolveInfo, args: DeleteOneChatMessageArgs): Promise<ChatMessage | null>;
+    findFirstChatMessage(ctx: any, info: GraphQLResolveInfo, args: FindFirstChatMessageArgs): Promise<ChatMessage | null>;
+    findFirstChatMessageOrThrow(ctx: any, info: GraphQLResolveInfo, args: FindFirstChatMessageOrThrowArgs): Promise<ChatMessage | null>;
+    chatMessages(ctx: any, info: GraphQLResolveInfo, args: FindManyChatMessageArgs): Promise<ChatMessage[]>;
+    chatMessage(ctx: any, info: GraphQLResolveInfo, args: FindUniqueChatMessageArgs): Promise<ChatMessage | null>;
+    getChatMessage(ctx: any, info: GraphQLResolveInfo, args: FindUniqueChatMessageOrThrowArgs): Promise<ChatMessage | null>;
+    groupByChatMessage(ctx: any, info: GraphQLResolveInfo, args: GroupByChatMessageArgs): Promise<ChatMessageGroupBy[]>;
+    updateManyChatMessage(ctx: any, info: GraphQLResolveInfo, args: UpdateManyChatMessageArgs): Promise<AffectedRowsOutput>;
+    updateOneChatMessage(ctx: any, info: GraphQLResolveInfo, args: UpdateOneChatMessageArgs): Promise<ChatMessage | null>;
+    upsertOneChatMessage(ctx: any, info: GraphQLResolveInfo, args: UpsertOneChatMessageArgs): Promise<ChatMessage>;
+}

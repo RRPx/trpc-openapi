@@ -1,0 +1,31 @@
+import { AddressOrderByWithRelationInput } from "../inputs/AddressOrderByWithRelationInput";
+import { CastOrderByWithRelationInput } from "../inputs/CastOrderByWithRelationInput";
+import { ChatRoomOrderByWithRelationInput } from "../inputs/ChatRoomOrderByWithRelationInput";
+import { ClientOrderByWithRelationInput } from "../inputs/ClientOrderByWithRelationInput";
+import { OptionMasterOrderByRelationAggregateInput } from "../inputs/OptionMasterOrderByRelationAggregateInput";
+import { ShiftManagementOrderByRelationAggregateInput } from "../inputs/ShiftManagementOrderByRelationAggregateInput";
+import { SortOrderInput } from "../inputs/SortOrderInput";
+export declare class ReservationOrderByWithRelationInput {
+    id?: "asc" | "desc" | undefined;
+    cast_id?: "asc" | "desc" | undefined;
+    client_id?: "asc" | "desc" | undefined;
+    start_time?: "asc" | "desc" | undefined;
+    end_time?: "asc" | "desc" | undefined;
+    guide_flg?: "asc" | "desc" | undefined;
+    approval?: "asc" | "desc" | undefined;
+    admin_approval?: "asc" | "desc" | undefined;
+    payment_amount?: "asc" | "desc" | undefined;
+    payment_select?: SortOrderInput | undefined;
+    payment_id?: SortOrderInput | undefined;
+    is_display?: "asc" | "desc" | undefined;
+    reservation_date?: "asc" | "desc" | undefined;
+    address_id?: "asc" | "desc" | undefined;
+    created_at?: "asc" | "desc" | undefined;
+    updated_at?: "asc" | "desc" | undefined;
+    cast?: CastOrderByWithRelationInput | undefined;
+    client?: ClientOrderByWithRelationInput | undefined;
+    option_id?: OptionMasterOrderByRelationAggregateInput | undefined;
+    shift_id?: ShiftManagementOrderByRelationAggregateInput | undefined;
+    chat_room?: ChatRoomOrderByWithRelationInput | undefined;
+    address?: AddressOrderByWithRelationInput | undefined;
+}

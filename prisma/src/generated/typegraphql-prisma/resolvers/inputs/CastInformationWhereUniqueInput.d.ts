@@ -1,0 +1,34 @@
+import { BoolFilter } from "../inputs/BoolFilter";
+import { BoolNullableFilter } from "../inputs/BoolNullableFilter";
+import { CastInformationWhereInput } from "../inputs/CastInformationWhereInput";
+import { CastRelationFilter } from "../inputs/CastRelationFilter";
+import { DateTimeFilter } from "../inputs/DateTimeFilter";
+import { IntNullableFilter } from "../inputs/IntNullableFilter";
+import { StringFilter } from "../inputs/StringFilter";
+import { StringNullableFilter } from "../inputs/StringNullableFilter";
+export declare class CastInformationWhereUniqueInput {
+    id?: string | undefined;
+    cast_id?: string | undefined;
+    AND?: CastInformationWhereInput[] | undefined;
+    OR?: CastInformationWhereInput[] | undefined;
+    NOT?: CastInformationWhereInput[] | undefined;
+    age?: IntNullableFilter | undefined;
+    height?: IntNullableFilter | undefined;
+    blood_type?: StringNullableFilter | undefined;
+    personality?: StringNullableFilter | undefined;
+    user_image_main?: StringFilter | undefined;
+    user_image_sub1?: StringNullableFilter | undefined;
+    user_image_sub2?: StringNullableFilter | undefined;
+    user_image_sub3?: StringNullableFilter | undefined;
+    user_image_sub4?: StringNullableFilter | undefined;
+    liquor?: BoolNullableFilter | undefined;
+    smoking?: BoolNullableFilter | undefined;
+    hobby?: StringNullableFilter | undefined;
+    like_spot?: StringNullableFilter | undefined;
+    self_introduction?: StringNullableFilter | undefined;
+    pick_up?: BoolFilter | undefined;
+    is_display?: BoolFilter | undefined;
+    created_at?: DateTimeFilter | undefined;
+    updated_at?: DateTimeFilter | undefined;
+    cast?: CastRelationFilter | undefined;
+}

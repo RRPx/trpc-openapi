@@ -1,0 +1,35 @@
+import type { GraphQLResolveInfo } from "graphql";
+import { AggregateInquiryArgs } from "./args/AggregateInquiryArgs";
+import { CreateManyInquiryArgs } from "./args/CreateManyInquiryArgs";
+import { CreateOneInquiryArgs } from "./args/CreateOneInquiryArgs";
+import { DeleteManyInquiryArgs } from "./args/DeleteManyInquiryArgs";
+import { DeleteOneInquiryArgs } from "./args/DeleteOneInquiryArgs";
+import { FindFirstInquiryArgs } from "./args/FindFirstInquiryArgs";
+import { FindFirstInquiryOrThrowArgs } from "./args/FindFirstInquiryOrThrowArgs";
+import { FindManyInquiryArgs } from "./args/FindManyInquiryArgs";
+import { FindUniqueInquiryArgs } from "./args/FindUniqueInquiryArgs";
+import { FindUniqueInquiryOrThrowArgs } from "./args/FindUniqueInquiryOrThrowArgs";
+import { GroupByInquiryArgs } from "./args/GroupByInquiryArgs";
+import { UpdateManyInquiryArgs } from "./args/UpdateManyInquiryArgs";
+import { UpdateOneInquiryArgs } from "./args/UpdateOneInquiryArgs";
+import { UpsertOneInquiryArgs } from "./args/UpsertOneInquiryArgs";
+import { Inquiry } from "../../../models/Inquiry";
+import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
+import { AggregateInquiry } from "../../outputs/AggregateInquiry";
+import { InquiryGroupBy } from "../../outputs/InquiryGroupBy";
+export declare class InquiryCrudResolver {
+    aggregateInquiry(ctx: any, info: GraphQLResolveInfo, args: AggregateInquiryArgs): Promise<AggregateInquiry>;
+    createManyInquiry(ctx: any, info: GraphQLResolveInfo, args: CreateManyInquiryArgs): Promise<AffectedRowsOutput>;
+    createOneInquiry(ctx: any, info: GraphQLResolveInfo, args: CreateOneInquiryArgs): Promise<Inquiry>;
+    deleteManyInquiry(ctx: any, info: GraphQLResolveInfo, args: DeleteManyInquiryArgs): Promise<AffectedRowsOutput>;
+    deleteOneInquiry(ctx: any, info: GraphQLResolveInfo, args: DeleteOneInquiryArgs): Promise<Inquiry | null>;
+    findFirstInquiry(ctx: any, info: GraphQLResolveInfo, args: FindFirstInquiryArgs): Promise<Inquiry | null>;
+    findFirstInquiryOrThrow(ctx: any, info: GraphQLResolveInfo, args: FindFirstInquiryOrThrowArgs): Promise<Inquiry | null>;
+    inquiries(ctx: any, info: GraphQLResolveInfo, args: FindManyInquiryArgs): Promise<Inquiry[]>;
+    inquiry(ctx: any, info: GraphQLResolveInfo, args: FindUniqueInquiryArgs): Promise<Inquiry | null>;
+    getInquiry(ctx: any, info: GraphQLResolveInfo, args: FindUniqueInquiryOrThrowArgs): Promise<Inquiry | null>;
+    groupByInquiry(ctx: any, info: GraphQLResolveInfo, args: GroupByInquiryArgs): Promise<InquiryGroupBy[]>;
+    updateManyInquiry(ctx: any, info: GraphQLResolveInfo, args: UpdateManyInquiryArgs): Promise<AffectedRowsOutput>;
+    updateOneInquiry(ctx: any, info: GraphQLResolveInfo, args: UpdateOneInquiryArgs): Promise<Inquiry | null>;
+    upsertOneInquiry(ctx: any, info: GraphQLResolveInfo, args: UpsertOneInquiryArgs): Promise<Inquiry>;
+}

@@ -1,0 +1,35 @@
+import type { GraphQLResolveInfo } from "graphql";
+import { AggregateOptionMasterArgs } from "./args/AggregateOptionMasterArgs";
+import { CreateManyOptionMasterArgs } from "./args/CreateManyOptionMasterArgs";
+import { CreateOneOptionMasterArgs } from "./args/CreateOneOptionMasterArgs";
+import { DeleteManyOptionMasterArgs } from "./args/DeleteManyOptionMasterArgs";
+import { DeleteOneOptionMasterArgs } from "./args/DeleteOneOptionMasterArgs";
+import { FindFirstOptionMasterArgs } from "./args/FindFirstOptionMasterArgs";
+import { FindFirstOptionMasterOrThrowArgs } from "./args/FindFirstOptionMasterOrThrowArgs";
+import { FindManyOptionMasterArgs } from "./args/FindManyOptionMasterArgs";
+import { FindUniqueOptionMasterArgs } from "./args/FindUniqueOptionMasterArgs";
+import { FindUniqueOptionMasterOrThrowArgs } from "./args/FindUniqueOptionMasterOrThrowArgs";
+import { GroupByOptionMasterArgs } from "./args/GroupByOptionMasterArgs";
+import { UpdateManyOptionMasterArgs } from "./args/UpdateManyOptionMasterArgs";
+import { UpdateOneOptionMasterArgs } from "./args/UpdateOneOptionMasterArgs";
+import { UpsertOneOptionMasterArgs } from "./args/UpsertOneOptionMasterArgs";
+import { OptionMaster } from "../../../models/OptionMaster";
+import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
+import { AggregateOptionMaster } from "../../outputs/AggregateOptionMaster";
+import { OptionMasterGroupBy } from "../../outputs/OptionMasterGroupBy";
+export declare class OptionMasterCrudResolver {
+    aggregateOptionMaster(ctx: any, info: GraphQLResolveInfo, args: AggregateOptionMasterArgs): Promise<AggregateOptionMaster>;
+    createManyOptionMaster(ctx: any, info: GraphQLResolveInfo, args: CreateManyOptionMasterArgs): Promise<AffectedRowsOutput>;
+    createOneOptionMaster(ctx: any, info: GraphQLResolveInfo, args: CreateOneOptionMasterArgs): Promise<OptionMaster>;
+    deleteManyOptionMaster(ctx: any, info: GraphQLResolveInfo, args: DeleteManyOptionMasterArgs): Promise<AffectedRowsOutput>;
+    deleteOneOptionMaster(ctx: any, info: GraphQLResolveInfo, args: DeleteOneOptionMasterArgs): Promise<OptionMaster | null>;
+    findFirstOptionMaster(ctx: any, info: GraphQLResolveInfo, args: FindFirstOptionMasterArgs): Promise<OptionMaster | null>;
+    findFirstOptionMasterOrThrow(ctx: any, info: GraphQLResolveInfo, args: FindFirstOptionMasterOrThrowArgs): Promise<OptionMaster | null>;
+    optionMasters(ctx: any, info: GraphQLResolveInfo, args: FindManyOptionMasterArgs): Promise<OptionMaster[]>;
+    optionMaster(ctx: any, info: GraphQLResolveInfo, args: FindUniqueOptionMasterArgs): Promise<OptionMaster | null>;
+    getOptionMaster(ctx: any, info: GraphQLResolveInfo, args: FindUniqueOptionMasterOrThrowArgs): Promise<OptionMaster | null>;
+    groupByOptionMaster(ctx: any, info: GraphQLResolveInfo, args: GroupByOptionMasterArgs): Promise<OptionMasterGroupBy[]>;
+    updateManyOptionMaster(ctx: any, info: GraphQLResolveInfo, args: UpdateManyOptionMasterArgs): Promise<AffectedRowsOutput>;
+    updateOneOptionMaster(ctx: any, info: GraphQLResolveInfo, args: UpdateOneOptionMasterArgs): Promise<OptionMaster | null>;
+    upsertOneOptionMaster(ctx: any, info: GraphQLResolveInfo, args: UpsertOneOptionMasterArgs): Promise<OptionMaster>;
+}

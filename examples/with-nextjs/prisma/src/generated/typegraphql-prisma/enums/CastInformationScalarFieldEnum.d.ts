@@ -1,0 +1,22 @@
+export declare enum CastInformationScalarFieldEnum {
+    id = "id",
+    cast_id = "cast_id",
+    age = "age",
+    height = "height",
+    blood_type = "blood_type",
+    personality = "personality",
+    user_image_main = "user_image_main",
+    user_image_sub1 = "user_image_sub1",
+    user_image_sub2 = "user_image_sub2",
+    user_image_sub3 = "user_image_sub3",
+    user_image_sub4 = "user_image_sub4",
+    liquor = "liquor",
+    smoking = "smoking",
+    hobby = "hobby",
+    like_spot = "like_spot",
+    self_introduction = "self_introduction",
+    pick_up = "pick_up",
+    is_display = "is_display",
+    created_at = "created_at",
+    updated_at = "updated_at"
+}

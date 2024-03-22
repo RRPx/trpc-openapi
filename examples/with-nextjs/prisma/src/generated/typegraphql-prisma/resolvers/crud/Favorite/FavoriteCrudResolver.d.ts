@@ -1,0 +1,35 @@
+import type { GraphQLResolveInfo } from "graphql";
+import { AggregateFavoriteArgs } from "./args/AggregateFavoriteArgs";
+import { CreateManyFavoriteArgs } from "./args/CreateManyFavoriteArgs";
+import { CreateOneFavoriteArgs } from "./args/CreateOneFavoriteArgs";
+import { DeleteManyFavoriteArgs } from "./args/DeleteManyFavoriteArgs";
+import { DeleteOneFavoriteArgs } from "./args/DeleteOneFavoriteArgs";
+import { FindFirstFavoriteArgs } from "./args/FindFirstFavoriteArgs";
+import { FindFirstFavoriteOrThrowArgs } from "./args/FindFirstFavoriteOrThrowArgs";
+import { FindManyFavoriteArgs } from "./args/FindManyFavoriteArgs";
+import { FindUniqueFavoriteArgs } from "./args/FindUniqueFavoriteArgs";
+import { FindUniqueFavoriteOrThrowArgs } from "./args/FindUniqueFavoriteOrThrowArgs";
+import { GroupByFavoriteArgs } from "./args/GroupByFavoriteArgs";
+import { UpdateManyFavoriteArgs } from "./args/UpdateManyFavoriteArgs";
+import { UpdateOneFavoriteArgs } from "./args/UpdateOneFavoriteArgs";
+import { UpsertOneFavoriteArgs } from "./args/UpsertOneFavoriteArgs";
+import { Favorite } from "../../../models/Favorite";
+import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
+import { AggregateFavorite } from "../../outputs/AggregateFavorite";
+import { FavoriteGroupBy } from "../../outputs/FavoriteGroupBy";
+export declare class FavoriteCrudResolver {
+    aggregateFavorite(ctx: any, info: GraphQLResolveInfo, args: AggregateFavoriteArgs): Promise<AggregateFavorite>;
+    createManyFavorite(ctx: any, info: GraphQLResolveInfo, args: CreateManyFavoriteArgs): Promise<AffectedRowsOutput>;
+    createOneFavorite(ctx: any, info: GraphQLResolveInfo, args: CreateOneFavoriteArgs): Promise<Favorite>;
+    deleteManyFavorite(ctx: any, info: GraphQLResolveInfo, args: DeleteManyFavoriteArgs): Promise<AffectedRowsOutput>;
+    deleteOneFavorite(ctx: any, info: GraphQLResolveInfo, args: DeleteOneFavoriteArgs): Promise<Favorite | null>;
+    findFirstFavorite(ctx: any, info: GraphQLResolveInfo, args: FindFirstFavoriteArgs): Promise<Favorite | null>;
+    findFirstFavoriteOrThrow(ctx: any, info: GraphQLResolveInfo, args: FindFirstFavoriteOrThrowArgs): Promise<Favorite | null>;
+    favorites(ctx: any, info: GraphQLResolveInfo, args: FindManyFavoriteArgs): Promise<Favorite[]>;
+    favorite(ctx: any, info: GraphQLResolveInfo, args: FindUniqueFavoriteArgs): Promise<Favorite | null>;
+    getFavorite(ctx: any, info: GraphQLResolveInfo, args: FindUniqueFavoriteOrThrowArgs): Promise<Favorite | null>;
+    groupByFavorite(ctx: any, info: GraphQLResolveInfo, args: GroupByFavoriteArgs): Promise<FavoriteGroupBy[]>;
+    updateManyFavorite(ctx: any, info: GraphQLResolveInfo, args: UpdateManyFavoriteArgs): Promise<AffectedRowsOutput>;
+    updateOneFavorite(ctx: any, info: GraphQLResolveInfo, args: UpdateOneFavoriteArgs): Promise<Favorite | null>;
+    upsertOneFavorite(ctx: any, info: GraphQLResolveInfo, args: UpsertOneFavoriteArgs): Promise<Favorite>;
+}

@@ -1,0 +1,14 @@
+export { AggregateReservationArgs } from "./AggregateReservationArgs";
+export { CreateManyReservationArgs } from "./CreateManyReservationArgs";
+export { CreateOneReservationArgs } from "./CreateOneReservationArgs";
+export { DeleteManyReservationArgs } from "./DeleteManyReservationArgs";
+export { DeleteOneReservationArgs } from "./DeleteOneReservationArgs";
+export { FindFirstReservationArgs } from "./FindFirstReservationArgs";
+export { FindFirstReservationOrThrowArgs } from "./FindFirstReservationOrThrowArgs";
+export { FindManyReservationArgs } from "./FindManyReservationArgs";
+export { FindUniqueReservationArgs } from "./FindUniqueReservationArgs";
+export { FindUniqueReservationOrThrowArgs } from "./FindUniqueReservationOrThrowArgs";
+export { GroupByReservationArgs } from "./GroupByReservationArgs";
+export { UpdateManyReservationArgs } from "./UpdateManyReservationArgs";
+export { UpdateOneReservationArgs } from "./UpdateOneReservationArgs";
+export { UpsertOneReservationArgs } from "./UpsertOneReservationArgs";

@@ -1,0 +1,14 @@
+export { AggregateUserRankArgs } from "./AggregateUserRankArgs";
+export { CreateManyUserRankArgs } from "./CreateManyUserRankArgs";
+export { CreateOneUserRankArgs } from "./CreateOneUserRankArgs";
+export { DeleteManyUserRankArgs } from "./DeleteManyUserRankArgs";
+export { DeleteOneUserRankArgs } from "./DeleteOneUserRankArgs";
+export { FindFirstUserRankArgs } from "./FindFirstUserRankArgs";
+export { FindFirstUserRankOrThrowArgs } from "./FindFirstUserRankOrThrowArgs";
+export { FindManyUserRankArgs } from "./FindManyUserRankArgs";
+export { FindUniqueUserRankArgs } from "./FindUniqueUserRankArgs";
+export { FindUniqueUserRankOrThrowArgs } from "./FindUniqueUserRankOrThrowArgs";
+export { GroupByUserRankArgs } from "./GroupByUserRankArgs";
+export { UpdateManyUserRankArgs } from "./UpdateManyUserRankArgs";
+export { UpdateOneUserRankArgs } from "./UpdateOneUserRankArgs";
+export { UpsertOneUserRankArgs } from "./UpsertOneUserRankArgs";

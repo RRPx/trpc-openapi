@@ -1,0 +1,35 @@
+import type { GraphQLResolveInfo } from "graphql";
+import { AggregateNotificationArgs } from "./args/AggregateNotificationArgs";
+import { CreateManyNotificationArgs } from "./args/CreateManyNotificationArgs";
+import { CreateOneNotificationArgs } from "./args/CreateOneNotificationArgs";
+import { DeleteManyNotificationArgs } from "./args/DeleteManyNotificationArgs";
+import { DeleteOneNotificationArgs } from "./args/DeleteOneNotificationArgs";
+import { FindFirstNotificationArgs } from "./args/FindFirstNotificationArgs";
+import { FindFirstNotificationOrThrowArgs } from "./args/FindFirstNotificationOrThrowArgs";
+import { FindManyNotificationArgs } from "./args/FindManyNotificationArgs";
+import { FindUniqueNotificationArgs } from "./args/FindUniqueNotificationArgs";
+import { FindUniqueNotificationOrThrowArgs } from "./args/FindUniqueNotificationOrThrowArgs";
+import { GroupByNotificationArgs } from "./args/GroupByNotificationArgs";
+import { UpdateManyNotificationArgs } from "./args/UpdateManyNotificationArgs";
+import { UpdateOneNotificationArgs } from "./args/UpdateOneNotificationArgs";
+import { UpsertOneNotificationArgs } from "./args/UpsertOneNotificationArgs";
+import { Notification } from "../../../models/Notification";
+import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
+import { AggregateNotification } from "../../outputs/AggregateNotification";
+import { NotificationGroupBy } from "../../outputs/NotificationGroupBy";
+export declare class NotificationCrudResolver {
+    aggregateNotification(ctx: any, info: GraphQLResolveInfo, args: AggregateNotificationArgs): Promise<AggregateNotification>;
+    createManyNotification(ctx: any, info: GraphQLResolveInfo, args: CreateManyNotificationArgs): Promise<AffectedRowsOutput>;
+    createOneNotification(ctx: any, info: GraphQLResolveInfo, args: CreateOneNotificationArgs): Promise<Notification>;
+    deleteManyNotification(ctx: any, info: GraphQLResolveInfo, args: DeleteManyNotificationArgs): Promise<AffectedRowsOutput>;
+    deleteOneNotification(ctx: any, info: GraphQLResolveInfo, args: DeleteOneNotificationArgs): Promise<Notification | null>;
+    findFirstNotification(ctx: any, info: GraphQLResolveInfo, args: FindFirstNotificationArgs): Promise<Notification | null>;
+    findFirstNotificationOrThrow(ctx: any, info: GraphQLResolveInfo, args: FindFirstNotificationOrThrowArgs): Promise<Notification | null>;
+    notifications(ctx: any, info: GraphQLResolveInfo, args: FindManyNotificationArgs): Promise<Notification[]>;
+    notification(ctx: any, info: GraphQLResolveInfo, args: FindUniqueNotificationArgs): Promise<Notification | null>;
+    getNotification(ctx: any, info: GraphQLResolveInfo, args: FindUniqueNotificationOrThrowArgs): Promise<Notification | null>;
+    groupByNotification(ctx: any, info: GraphQLResolveInfo, args: GroupByNotificationArgs): Promise<NotificationGroupBy[]>;
+    updateManyNotification(ctx: any, info: GraphQLResolveInfo, args: UpdateManyNotificationArgs): Promise<AffectedRowsOutput>;
+    updateOneNotification(ctx: any, info: GraphQLResolveInfo, args: UpdateOneNotificationArgs): Promise<Notification | null>;
+    upsertOneNotification(ctx: any, info: GraphQLResolveInfo, args: UpsertOneNotificationArgs): Promise<Notification>;
+}

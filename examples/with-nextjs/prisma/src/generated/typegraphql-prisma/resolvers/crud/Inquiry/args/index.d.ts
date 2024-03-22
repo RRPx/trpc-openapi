@@ -1,0 +1,14 @@
+export { AggregateInquiryArgs } from "./AggregateInquiryArgs";
+export { CreateManyInquiryArgs } from "./CreateManyInquiryArgs";
+export { CreateOneInquiryArgs } from "./CreateOneInquiryArgs";
+export { DeleteManyInquiryArgs } from "./DeleteManyInquiryArgs";
+export { DeleteOneInquiryArgs } from "./DeleteOneInquiryArgs";
+export { FindFirstInquiryArgs } from "./FindFirstInquiryArgs";
+export { FindFirstInquiryOrThrowArgs } from "./FindFirstInquiryOrThrowArgs";
+export { FindManyInquiryArgs } from "./FindManyInquiryArgs";
+export { FindUniqueInquiryArgs } from "./FindUniqueInquiryArgs";
+export { FindUniqueInquiryOrThrowArgs } from "./FindUniqueInquiryOrThrowArgs";
+export { GroupByInquiryArgs } from "./GroupByInquiryArgs";
+export { UpdateManyInquiryArgs } from "./UpdateManyInquiryArgs";
+export { UpdateOneInquiryArgs } from "./UpdateOneInquiryArgs";
+export { UpsertOneInquiryArgs } from "./UpsertOneInquiryArgs";

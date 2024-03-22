@@ -1,0 +1,31 @@
+import { BoolNullableWithAggregatesFilter } from "../inputs/BoolNullableWithAggregatesFilter";
+import { BoolWithAggregatesFilter } from "../inputs/BoolWithAggregatesFilter";
+import { DateTimeWithAggregatesFilter } from "../inputs/DateTimeWithAggregatesFilter";
+import { IntNullableWithAggregatesFilter } from "../inputs/IntNullableWithAggregatesFilter";
+import { StringNullableWithAggregatesFilter } from "../inputs/StringNullableWithAggregatesFilter";
+import { StringWithAggregatesFilter } from "../inputs/StringWithAggregatesFilter";
+export declare class CastInformationScalarWhereWithAggregatesInput {
+    AND?: CastInformationScalarWhereWithAggregatesInput[] | undefined;
+    OR?: CastInformationScalarWhereWithAggregatesInput[] | undefined;
+    NOT?: CastInformationScalarWhereWithAggregatesInput[] | undefined;
+    id?: StringWithAggregatesFilter | undefined;
+    cast_id?: StringWithAggregatesFilter | undefined;
+    age?: IntNullableWithAggregatesFilter | undefined;
+    height?: IntNullableWithAggregatesFilter | undefined;
+    blood_type?: StringNullableWithAggregatesFilter | undefined;
+    personality?: StringNullableWithAggregatesFilter | undefined;
+    user_image_main?: StringWithAggregatesFilter | undefined;
+    user_image_sub1?: StringNullableWithAggregatesFilter | undefined;
+    user_image_sub2?: StringNullableWithAggregatesFilter | undefined;
+    user_image_sub3?: StringNullableWithAggregatesFilter | undefined;
+    user_image_sub4?: StringNullableWithAggregatesFilter | undefined;
+    liquor?: BoolNullableWithAggregatesFilter | undefined;
+    smoking?: BoolNullableWithAggregatesFilter | undefined;
+    hobby?: StringNullableWithAggregatesFilter | undefined;
+    like_spot?: StringNullableWithAggregatesFilter | undefined;
+    self_introduction?: StringNullableWithAggregatesFilter | undefined;
+    pick_up?: BoolWithAggregatesFilter | undefined;
+    is_display?: BoolWithAggregatesFilter | undefined;
+    created_at?: DateTimeWithAggregatesFilter | undefined;
+    updated_at?: DateTimeWithAggregatesFilter | undefined;
+}

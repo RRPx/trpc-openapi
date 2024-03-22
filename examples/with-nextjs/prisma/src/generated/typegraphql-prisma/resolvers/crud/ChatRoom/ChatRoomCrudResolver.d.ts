@@ -1,0 +1,35 @@
+import type { GraphQLResolveInfo } from "graphql";
+import { AggregateChatRoomArgs } from "./args/AggregateChatRoomArgs";
+import { CreateManyChatRoomArgs } from "./args/CreateManyChatRoomArgs";
+import { CreateOneChatRoomArgs } from "./args/CreateOneChatRoomArgs";
+import { DeleteManyChatRoomArgs } from "./args/DeleteManyChatRoomArgs";
+import { DeleteOneChatRoomArgs } from "./args/DeleteOneChatRoomArgs";
+import { FindFirstChatRoomArgs } from "./args/FindFirstChatRoomArgs";
+import { FindFirstChatRoomOrThrowArgs } from "./args/FindFirstChatRoomOrThrowArgs";
+import { FindManyChatRoomArgs } from "./args/FindManyChatRoomArgs";
+import { FindUniqueChatRoomArgs } from "./args/FindUniqueChatRoomArgs";
+import { FindUniqueChatRoomOrThrowArgs } from "./args/FindUniqueChatRoomOrThrowArgs";
+import { GroupByChatRoomArgs } from "./args/GroupByChatRoomArgs";
+import { UpdateManyChatRoomArgs } from "./args/UpdateManyChatRoomArgs";
+import { UpdateOneChatRoomArgs } from "./args/UpdateOneChatRoomArgs";
+import { UpsertOneChatRoomArgs } from "./args/UpsertOneChatRoomArgs";
+import { ChatRoom } from "../../../models/ChatRoom";
+import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
+import { AggregateChatRoom } from "../../outputs/AggregateChatRoom";
+import { ChatRoomGroupBy } from "../../outputs/ChatRoomGroupBy";
+export declare class ChatRoomCrudResolver {
+    aggregateChatRoom(ctx: any, info: GraphQLResolveInfo, args: AggregateChatRoomArgs): Promise<AggregateChatRoom>;
+    createManyChatRoom(ctx: any, info: GraphQLResolveInfo, args: CreateManyChatRoomArgs): Promise<AffectedRowsOutput>;
+    createOneChatRoom(ctx: any, info: GraphQLResolveInfo, args: CreateOneChatRoomArgs): Promise<ChatRoom>;
+    deleteManyChatRoom(ctx: any, info: GraphQLResolveInfo, args: DeleteManyChatRoomArgs): Promise<AffectedRowsOutput>;
+    deleteOneChatRoom(ctx: any, info: GraphQLResolveInfo, args: DeleteOneChatRoomArgs): Promise<ChatRoom | null>;
+    findFirstChatRoom(ctx: any, info: GraphQLResolveInfo, args: FindFirstChatRoomArgs): Promise<ChatRoom | null>;
+    findFirstChatRoomOrThrow(ctx: any, info: GraphQLResolveInfo, args: FindFirstChatRoomOrThrowArgs): Promise<ChatRoom | null>;
+    chatRooms(ctx: any, info: GraphQLResolveInfo, args: FindManyChatRoomArgs): Promise<ChatRoom[]>;
+    chatRoom(ctx: any, info: GraphQLResolveInfo, args: FindUniqueChatRoomArgs): Promise<ChatRoom | null>;
+    getChatRoom(ctx: any, info: GraphQLResolveInfo, args: FindUniqueChatRoomOrThrowArgs): Promise<ChatRoom | null>;
+    groupByChatRoom(ctx: any, info: GraphQLResolveInfo, args: GroupByChatRoomArgs): Promise<ChatRoomGroupBy[]>;
+    updateManyChatRoom(ctx: any, info: GraphQLResolveInfo, args: UpdateManyChatRoomArgs): Promise<AffectedRowsOutput>;
+    updateOneChatRoom(ctx: any, info: GraphQLResolveInfo, args: UpdateOneChatRoomArgs): Promise<ChatRoom | null>;
+    upsertOneChatRoom(ctx: any, info: GraphQLResolveInfo, args: UpsertOneChatRoomArgs): Promise<ChatRoom>;
+}

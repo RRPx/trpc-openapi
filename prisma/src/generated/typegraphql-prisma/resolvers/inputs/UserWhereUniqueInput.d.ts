@@ -1,0 +1,34 @@
+import { AccountListRelationFilter } from "../inputs/AccountListRelationFilter";
+import { CastNullableRelationFilter } from "../inputs/CastNullableRelationFilter";
+import { ClientNullableRelationFilter } from "../inputs/ClientNullableRelationFilter";
+import { DateTimeFilter } from "../inputs/DateTimeFilter";
+import { DateTimeNullableFilter } from "../inputs/DateTimeNullableFilter";
+import { EnumAdminRoleFilter } from "../inputs/EnumAdminRoleFilter";
+import { EnumRoleFilter } from "../inputs/EnumRoleFilter";
+import { SessionListRelationFilter } from "../inputs/SessionListRelationFilter";
+import { StringFilter } from "../inputs/StringFilter";
+import { StringNullableFilter } from "../inputs/StringNullableFilter";
+import { UserWhereInput } from "../inputs/UserWhereInput";
+export declare class UserWhereUniqueInput {
+    id?: string | undefined;
+    client_id?: string | undefined;
+    cast_id?: string | undefined;
+    AND?: UserWhereInput[] | undefined;
+    OR?: UserWhereInput[] | undefined;
+    NOT?: UserWhereInput[] | undefined;
+    last_name?: StringFilter | undefined;
+    first_name?: StringFilter | undefined;
+    email?: StringFilter | undefined;
+    email_verified?: DateTimeNullableFilter | undefined;
+    firebase_auth_id?: StringNullableFilter | undefined;
+    hash_password?: StringNullableFilter | undefined;
+    stripe_account_id?: StringNullableFilter | undefined;
+    verification_image?: StringNullableFilter | undefined;
+    admin_role?: EnumAdminRoleFilter | undefined;
+    role?: EnumRoleFilter | undefined;
+    created_at?: DateTimeFilter | undefined;
+    accounts?: AccountListRelationFilter | undefined;
+    sessions?: SessionListRelationFilter | undefined;
+    client?: ClientNullableRelationFilter | undefined;
+    cast?: CastNullableRelationFilter | undefined;
+}

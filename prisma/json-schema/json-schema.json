@@ -1,0 +1,1417 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Example": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "name",
+        "updatedAt"
+      ]
+    },
+    "Account": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "password_hash": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "provider": {
+          "type": "string"
+        },
+        "providerAccountId": {
+          "type": "string"
+        },
+        "refresh_token": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "access_token": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "expires_at": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "token_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scope": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id_token": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "session_state": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "user": {
+          "$ref": "#/definitions/User"
+        }
+      },
+      "required": [
+        "userId",
+        "type",
+        "provider",
+        "providerAccountId"
+      ]
+    },
+    "Session": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "sessionToken": {
+          "type": "string"
+        },
+        "expires": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "user": {
+          "$ref": "#/definitions/User"
+        }
+      },
+      "required": [
+        "sessionToken",
+        "userId",
+        "expires"
+      ]
+    },
+    "VerificationToken": {
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "expires": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "identifier",
+        "token",
+        "expires"
+      ]
+    },
+    "UserRank": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "cast": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Cast"
+          }
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "basic_fee": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "is_display": {
+          "type": "boolean",
+          "default": true
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": []
+    },
+    "CastInformation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "cast": {
+          "$ref": "#/definitions/Cast"
+        },
+        "age": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "height": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "blood_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "personality": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "user_image_main": {
+          "type": "string"
+        },
+        "user_image_sub1": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "user_image_sub2": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "user_image_sub3": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "user_image_sub4": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "liquor": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "smoking": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "hobby": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "like_spot": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "self_introduction": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pick_up": {
+          "type": "boolean",
+          "default": false
+        },
+        "is_display": {
+          "type": "boolean",
+          "default": true
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "cast_id",
+        "user_image_main"
+      ]
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "email_verified": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "accounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Account"
+          }
+        },
+        "sessions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Session"
+          }
+        },
+        "firebase_auth_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "hash_password": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "stripe_account_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "verification_image": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "client": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Client"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cast": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Cast"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "admin_role": {
+          "type": "string",
+          "default": "READER",
+          "enum": [
+            "Administorator",
+            "EDITOR",
+            "READER"
+          ]
+        },
+        "role": {
+          "type": "string",
+          "default": "CLIENT",
+          "enum": [
+            "CLIENT",
+            "CAST",
+            "ADMIN"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "last_name",
+        "first_name",
+        "email"
+      ]
+    },
+    "Cast": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "nick_name": {
+          "type": "string"
+        },
+        "telephone_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "birthday": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "locate": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "language_type": {
+          "type": "array",
+          "enum": [
+            "English",
+            "Chinese",
+            "Korean"
+          ]
+        },
+        "language_other": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cosplay_guide": {
+          "type": "boolean"
+        },
+        "cosplay_content": {
+          "type": "array",
+          "enum": [
+            "maid",
+            "anime"
+          ]
+        },
+        "cosplay_other": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cup_number": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "ACUP",
+            "BCUP",
+            "CCUP",
+            "DCUP",
+            "ECUP",
+            "FCUP",
+            "GCUP",
+            "HCUP",
+            "OTHER",
+            "SECRET"
+          ]
+        },
+        "memo": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "user": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/User"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "user_rank": {
+          "$ref": "#/definitions/UserRank"
+        },
+        "favorite": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Favorite"
+          }
+        },
+        "notification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Notification"
+          }
+        },
+        "option_master": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OptionMaster"
+          }
+        },
+        "shift_management": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShiftManagement"
+          }
+        },
+        "review": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Review"
+          }
+        },
+        "cast_information": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/CastInformation"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reservation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Reservation"
+          }
+        },
+        "bank_information": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BankInformation"
+          }
+        },
+        "is_display": {
+          "type": "boolean",
+          "default": true
+        },
+        "homepage_recommended_priority": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ]
+        },
+        "profile_approval_by_admin": {
+          "type": "string",
+          "default": "HOLD",
+          "enum": [
+            "APPROVAL",
+            "DENIAL",
+            "HOLD"
+          ]
+        },
+        "twitter_user_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "instagram_user_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "nick_name",
+        "language_type",
+        "cosplay_guide",
+        "cosplay_content",
+        "user_rank_id"
+      ]
+    },
+    "Client": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "telephone_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "birthday": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "age": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nick_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "image": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "gender": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "male",
+            "female"
+          ]
+        },
+        "image2": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "image3": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "users": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/User"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "favorite": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Favorite"
+          }
+        },
+        "reservation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Reservation"
+          }
+        },
+        "review": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Review"
+          }
+        },
+        "notification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Notification"
+          }
+        },
+        "is_display": {
+          "type": "boolean",
+          "default": true
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": []
+    },
+    "Address": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "lat": {
+          "type": "string"
+        },
+        "long": {
+          "type": "string"
+        },
+        "note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "address": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "is_display": {
+          "type": "boolean",
+          "default": true
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reservation": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Reservation"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "lat",
+        "long"
+      ]
+    },
+    "Favorite": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "client": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Client"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cast": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Cast"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "is_display": {
+          "type": "boolean",
+          "default": true
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": []
+    },
+    "ShiftManagement": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "cast": {
+          "$ref": "#/definitions/Cast"
+        },
+        "client_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "shift_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "start_time": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "end_time": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "memo": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "is_display": {
+          "type": "boolean",
+          "default": true
+        },
+        "cast_side_reservation_status": {
+          "type": "string",
+          "default": "AWAITING",
+          "enum": [
+            "TRANSPORTATION",
+            "AWAITING",
+            "BOOKED"
+          ]
+        },
+        "client_side_slot_status": {
+          "type": "string",
+          "default": "UNBOOKED",
+          "enum": [
+            "HOLD",
+            "UNBOOKED",
+            "BOOKED"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Reservation": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Reservation"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "cast_id"
+      ]
+    },
+    "Review": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "cast": {
+          "$ref": "#/definitions/Cast"
+        },
+        "client": {
+          "$ref": "#/definitions/Client"
+        },
+        "nick_name": {
+          "type": "string"
+        },
+        "score": {
+          "type": "string"
+        },
+        "reviews": {
+          "type": "string"
+        },
+        "approval": {
+          "type": "string",
+          "default": "HOLD",
+          "enum": [
+            "APPROVAL",
+            "DENIAL",
+            "HOLD"
+          ]
+        },
+        "is_display": {
+          "type": "boolean",
+          "default": true
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "cast_id",
+        "client_id",
+        "nick_name",
+        "score",
+        "reviews"
+      ]
+    },
+    "Reservation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "cast": {
+          "$ref": "#/definitions/Cast"
+        },
+        "client": {
+          "$ref": "#/definitions/Client"
+        },
+        "start_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "end_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "option_id": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OptionMaster"
+          }
+        },
+        "shift_id": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShiftManagement"
+          }
+        },
+        "guide_flg": {
+          "type": "boolean",
+          "default": false
+        },
+        "approval": {
+          "type": "string",
+          "default": "HOLD",
+          "enum": [
+            "APPROVAL",
+            "DENIAL",
+            "HOLD"
+          ]
+        },
+        "admin_approval": {
+          "type": "string",
+          "default": "HOLD",
+          "enum": [
+            "APPROVAL",
+            "DENIAL",
+            "HOLD"
+          ]
+        },
+        "payment_amount": {
+          "type": "integer"
+        },
+        "payment_select": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "payment_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "chat_room": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/ChatRoom"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "is_display": {
+          "type": "boolean",
+          "default": true
+        },
+        "reservation_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "address": {
+          "$ref": "#/definitions/Address"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "cast_id",
+        "client_id",
+        "start_time",
+        "end_time",
+        "payment_amount",
+        "reservation_date",
+        "address_id"
+      ]
+    },
+    "ChatRoom": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "reservation": {
+          "$ref": "#/definitions/Reservation"
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChatMessage"
+          }
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "reservation_id"
+      ]
+    },
+    "ChatMessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "chat_room": {
+          "$ref": "#/definitions/ChatRoom"
+        },
+        "message": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "is_seen": {
+          "type": "boolean",
+          "default": false
+        },
+        "is_admin_seen": {
+          "type": "boolean",
+          "default": false
+        },
+        "user_type": {
+          "type": "string",
+          "enum": [
+            "CAST",
+            "CLIENT"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "chat_room_id",
+        "user_type"
+      ]
+    },
+    "Inquiry": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "is_seen": {
+          "type": "boolean",
+          "default": false
+        },
+        "inquirerRole": {
+          "type": "string",
+          "default": "UNREGISTER",
+          "enum": [
+            "CAST",
+            "CLIENT",
+            "UNREGISTER"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "name",
+        "email",
+        "title",
+        "content"
+      ]
+    },
+    "Notification": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "category": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "NEWCAST",
+            "WARNING",
+            "IMPORTANT",
+            "RESERVATION_COMPLETED",
+            "RESERVATION_REJECTED"
+          ]
+        },
+        "notification_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content": {
+          "type": "string"
+        },
+        "cast": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Cast"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "client": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Client"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "is_seen": {
+          "type": "boolean",
+          "default": false
+        },
+        "language": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "targeted_user": {
+          "type": "string",
+          "default": "NONE",
+          "enum": [
+            "CAST",
+            "CLIENT",
+            "BOTH",
+            "NONE"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "title",
+        "notification_date",
+        "content"
+      ]
+    },
+    "BankInformation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "bank_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "bank_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "bank_finance_code": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "account_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "account_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "account_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cast": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Cast"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "is_deleted": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": [
+        "updated_at"
+      ]
+    },
+    "OptionMaster": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "option_menu": {
+          "type": "string"
+        },
+        "fee": {
+          "type": "integer"
+        },
+        "cast": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Cast"
+          }
+        },
+        "reservation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Reservation"
+          }
+        },
+        "is_display": {
+          "type": "boolean",
+          "default": true
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "option_menu",
+        "fee"
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "example": {
+      "$ref": "#/definitions/Example"
+    },
+    "account": {
+      "$ref": "#/definitions/Account"
+    },
+    "session": {
+      "$ref": "#/definitions/Session"
+    },
+    "verificationToken": {
+      "$ref": "#/definitions/VerificationToken"
+    },
+    "userRank": {
+      "$ref": "#/definitions/UserRank"
+    },
+    "castInformation": {
+      "$ref": "#/definitions/CastInformation"
+    },
+    "user": {
+      "$ref": "#/definitions/User"
+    },
+    "cast": {
+      "$ref": "#/definitions/Cast"
+    },
+    "client": {
+      "$ref": "#/definitions/Client"
+    },
+    "address": {
+      "$ref": "#/definitions/Address"
+    },
+    "favorite": {
+      "$ref": "#/definitions/Favorite"
+    },
+    "shiftManagement": {
+      "$ref": "#/definitions/ShiftManagement"
+    },
+    "review": {
+      "$ref": "#/definitions/Review"
+    },
+    "reservation": {
+      "$ref": "#/definitions/Reservation"
+    },
+    "chatRoom": {
+      "$ref": "#/definitions/ChatRoom"
+    },
+    "chatMessage": {
+      "$ref": "#/definitions/ChatMessage"
+    },
+    "inquiry": {
+      "$ref": "#/definitions/Inquiry"
+    },
+    "notification": {
+      "$ref": "#/definitions/Notification"
+    },
+    "bankInformation": {
+      "$ref": "#/definitions/BankInformation"
+    },
+    "optionMaster": {
+      "$ref": "#/definitions/OptionMaster"
+    }
+  }
+}

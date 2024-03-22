@@ -1,0 +1,445 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["interactiveTransactions"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator typegraphql {
+  provider                 = "typegraphql-prisma"
+  output                   = "./src/generated/typegraphql-prisma"
+  useUncheckedScalarInputs = "true"
+  emitTranspiledCode       = true
+}
+
+
+
+generator jsonSchema {
+  provider              = "prisma-json-schema-generator"
+  includeRequiredFields = "true"
+}
+
+model Example {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([name])
+}
+
+// Necessary for Next auth
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  password_hash     String?
+  provider          String
+  providerAccountId String
+  refresh_token     String? // @db.Text
+  access_token      String? // @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? // @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// model User {
+//     id            String    @id @default(cuid())
+//     name          String?
+//     email         String?   @unique
+//     emailVerified DateTime?
+//     image         String?
+//     accounts      Account[]
+//     sessions      Session[]
+// }
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model UserRank {
+  id         String   @id @default(cuid())
+  cast       Cast[]
+  name       String?
+  basic_fee  Int?
+  is_display Boolean  @default(true)
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+}
+
+model CastInformation {
+  id                String   @id @default(cuid())
+  cast              Cast     @relation(fields: [cast_id], references: [id])
+  cast_id           String   @unique
+  age               Int?
+  height            Int?
+  blood_type        String?
+  personality       String?
+  user_image_main   String
+  user_image_sub1   String?
+  user_image_sub2   String?
+  user_image_sub3   String?
+  user_image_sub4   String?
+  liquor            Boolean?
+  smoking           Boolean?
+  hobby             String?
+  like_spot         String?
+  self_introduction String?
+  pick_up           Boolean  @default(false)
+  is_display        Boolean  @default(true)
+  created_at        DateTime @default(now())
+  updated_at        DateTime @default(now())
+}
+
+model User {
+  id                 String    @id @default(cuid())
+  // id                    String    @id @default(cuid())
+  last_name          String
+  first_name         String
+  email              String
+  email_verified     DateTime?
+  accounts           Account[]
+  sessions           Session[]
+  firebase_auth_id   String?
+  hash_password      String?
+  stripe_account_id  String?
+  verification_image String?
+  client             Client?   @relation(fields: [client_id], references: [id])
+  client_id          String?   @unique
+  cast               Cast?     @relation(fields: [cast_id], references: [id])
+  cast_id            String?   @unique
+  admin_role         AdminRole @default(READER)
+  role               Role      @default(CLIENT)
+  created_at         DateTime  @default(now())
+}
+
+enum Role {
+  CLIENT
+  CAST
+  ADMIN
+}
+
+model Cast {
+  id                            String            @id @default(cuid())
+  nick_name                     String
+  telephone_number              String?
+  birthday                      DateTime?
+  locate                        String?
+  language_type                 LanguageType[]
+  language_other                String?
+  cosplay_guide                 Boolean
+  cosplay_content               CosplayContent[]
+  cosplay_other                 String?
+  cup_number                    CupNumber?
+  memo                          String?
+  user                          User?
+  user_rank                     UserRank          @relation(fields: [user_rank_id], references: [id])
+  user_rank_id                  String
+  favorite                      Favorite[]
+  notification                  Notification[]
+  option_master                 OptionMaster[]
+  shift_management              ShiftManagement[]
+  review                        Review[]
+  cast_information              CastInformation?
+  reservation                   Reservation[]
+  bank_information              BankInformation[]
+  is_display                    Boolean           @default(true)
+  homepage_recommended_priority PriorityOrder?
+  profile_approval_by_admin     Approval          @default(HOLD)
+  twitter_user_name             String?
+  instagram_user_name           String?
+  created_at                    DateTime          @default(now())
+  updated_at                    DateTime          @default(now())
+}
+
+enum PriorityOrder {
+  A
+  B
+  C
+  D
+  E
+}
+
+enum CupNumber {
+  ACUP
+  BCUP
+  CCUP
+  DCUP
+  ECUP
+  FCUP
+  GCUP
+  HCUP
+  OTHER
+  SECRET
+}
+
+enum AdminRole {
+  Administorator
+  EDITOR
+  READER
+}
+
+enum LanguageType {
+  English
+  Chinese
+  Korean
+}
+
+enum CosplayContent {
+  maid
+  anime
+}
+
+model Client {
+  id               String         @id @default(cuid())
+  telephone_number String?
+  birthday         DateTime?
+  age              String?
+  nick_name        String?
+  image            String?
+  gender           Gender?
+  image2           String?
+  image3           String?
+  users            User?
+  favorite         Favorite[]
+  reservation      Reservation[]
+  review           Review[]
+  notification     Notification[]
+  is_display       Boolean        @default(true)
+  created_at       DateTime       @default(now())
+}
+
+enum Gender {
+  male
+  female
+}
+
+model Address {
+  id          String       @id @default(cuid())
+  lat         String
+  long        String
+  note        String?
+  address     String?
+  is_display  Boolean      @default(true)
+  created_at  DateTime     @default(now())
+  // client      Client       @relation(fields: [client_id], references: [id])
+  // client_id   String       @unique
+  reservation Reservation?
+}
+
+model Favorite {
+  id         String   @id @default(cuid())
+  client     Client?  @relation(fields: [client_id], references: [id])
+  client_id  String?
+  cast       Cast?    @relation(fields: [cast_id], references: [id])
+  cast_id    String?
+  is_display Boolean  @default(true)
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+}
+
+model ShiftManagement {
+  id                           String                    @id @default(cuid())
+  cast                         Cast                      @relation(fields: [cast_id], references: [id])
+  cast_id                      String
+  client_id                    String?
+  shift_date                   DateTime?
+  start_time                   DateTime?
+  end_time                     DateTime?
+  memo                         String?
+  is_display                   Boolean                   @default(true)
+  cast_side_reservation_status CastSideReservationStatus @default(AWAITING)
+  client_side_slot_status      ClientSideSlotStatus      @default(UNBOOKED)
+  created_at                   DateTime                  @default(now())
+  updated_at                   DateTime                  @default(now())
+  Reservation                  Reservation?              @relation(fields: [reservationId], references: [id])
+  reservationId                String?
+}
+
+enum CastSideReservationStatus {
+  TRANSPORTATION
+  AWAITING
+  BOOKED
+}
+
+enum ClientSideSlotStatus {
+  HOLD
+  UNBOOKED
+  BOOKED
+}
+
+model Review {
+  id         String   @id @default(cuid())
+  cast       Cast     @relation(fields: [cast_id], references: [id])
+  cast_id    String
+  client     Client   @relation(fields: [client_id], references: [id])
+  client_id  String
+  nick_name  String
+  score      String
+  reviews    String
+  approval   Approval @default(HOLD)
+  is_display Boolean  @default(true)
+  created_at DateTime @default(now())
+}
+
+model Reservation {
+  id               String            @id @default(cuid())
+  cast             Cast              @relation(fields: [cast_id], references: [id])
+  cast_id          String
+  client           Client            @relation(fields: [client_id], references: [id])
+  client_id        String
+  start_time       DateTime
+  end_time         DateTime
+  option_id        OptionMaster[]
+  shift_id         ShiftManagement[]
+  guide_flg        Boolean           @default(false)
+  approval         Approval          @default(HOLD)
+  admin_approval   Approval          @default(HOLD)
+  payment_amount   Int
+  payment_select   String?
+  payment_id       String?           @unique
+  chat_room        ChatRoom?
+  is_display       Boolean           @default(true)
+  reservation_date DateTime
+  address          Address           @relation(fields: [address_id], references: [id])
+  address_id       String            @unique
+  created_at       DateTime          @default(now())
+  updated_at       DateTime          @default(now())
+}
+
+enum Approval {
+  APPROVAL
+  DENIAL
+  HOLD
+}
+
+model ChatRoom {
+  id             String        @id @default(cuid())
+  reservation    Reservation   @relation(fields: [reservation_id], references: [id], onDelete: Cascade)
+  reservation_id String        @unique
+  messages       ChatMessage[]
+  created_at     DateTime      @default(now())
+  updated_at     DateTime      @default(now()) @updatedAt
+}
+
+model ChatMessage {
+  id            String   @id @default(cuid())
+  chat_room     ChatRoom @relation(fields: [chat_room_id], references: [id], onDelete: Cascade)
+  chat_room_id  String
+  message       String?  @db.Text
+  is_seen       Boolean  @default(false)
+  is_admin_seen Boolean  @default(false)
+  user_type     UserType
+  created_at    DateTime @default(now())
+  updated_at    DateTime @default(now()) @updatedAt
+}
+
+enum UserType {
+  CAST
+  CLIENT
+}
+
+model Inquiry {
+  id           String       @id @default(cuid())
+  name         String
+  email        String
+  token        String       @default(uuid())
+  title        String
+  content      String
+  is_seen      Boolean      @default(false)
+  inquirerRole InquirerRole @default(UNREGISTER)
+  created_at   DateTime     @default(now())
+
+  @@index([email])
+}
+
+enum InquirerRole {
+  CAST
+  CLIENT
+  UNREGISTER
+}
+
+model Notification {
+  id                String       @id @default(cuid())
+  title             String
+  category          Category?
+  notification_date DateTime
+  content           String
+  cast              Cast?        @relation(fields: [cast_id], references: [id])
+  client            Client?      @relation(fields: [client_id], references: [id])
+  cast_id           String?
+  client_id         String?
+  is_seen           Boolean      @default(false)
+  language          String?
+  targeted_user     TargetedUser @default(NONE)
+  created_at        DateTime     @default(now())
+  updated_at        DateTime     @default(now()) @updatedAt
+
+  @@index([title])
+}
+
+enum Category {
+  NEWCAST
+  WARNING
+  IMPORTANT
+  RESERVATION_COMPLETED
+  RESERVATION_REJECTED
+}
+
+enum TargetedUser {
+  CAST
+  CLIENT
+  BOTH
+  NONE
+}
+
+model BankInformation {
+  id                String   @id @default(cuid())
+  bank_name         String?  @db.VarChar(20)
+  bank_number       String?
+  bank_finance_code String?
+  account_name      String?  @db.VarChar(30)
+  account_number    String?  @unique
+  account_type      String?  @db.VarChar(10)
+  cast_id           String?
+  cast              Cast?    @relation(references: [id], fields: [cast_id])
+  created_at        DateTime @default(now())
+  updated_at        DateTime @updatedAt
+  is_deleted        Boolean  @default(false)
+}
+
+model OptionMaster {
+  id          String        @id @default(cuid())
+  option_menu String
+  fee         Int
+  cast        Cast[]
+  reservation Reservation[]
+  is_display  Boolean       @default(true)
+  created_at  DateTime      @default(now())
+  updated_at  DateTime      @default(now()) @updatedAt
+}
+
+//Cast料金形態の要件次第

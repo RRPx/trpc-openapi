@@ -1,0 +1,32 @@
+import { Address } from "../models/Address";
+import { Cast } from "../models/Cast";
+import { ChatRoom } from "../models/ChatRoom";
+import { Client } from "../models/Client";
+import { OptionMaster } from "../models/OptionMaster";
+import { ShiftManagement } from "../models/ShiftManagement";
+import { ReservationCount } from "../resolvers/outputs/ReservationCount";
+export declare class Reservation {
+    id: string;
+    cast?: Cast;
+    cast_id: string;
+    client?: Client;
+    client_id: string;
+    start_time: Date;
+    end_time: Date;
+    option_id?: OptionMaster[];
+    shift_id?: ShiftManagement[];
+    guide_flg: boolean;
+    approval: "APPROVAL" | "DENIAL" | "HOLD";
+    admin_approval: "APPROVAL" | "DENIAL" | "HOLD";
+    payment_amount: number;
+    payment_select?: string | null;
+    payment_id?: string | null;
+    chat_room?: ChatRoom | null;
+    is_display: boolean;
+    reservation_date: Date;
+    address?: Address;
+    address_id: string;
+    created_at: Date;
+    updated_at: Date;
+    _count?: ReservationCount | null;
+}

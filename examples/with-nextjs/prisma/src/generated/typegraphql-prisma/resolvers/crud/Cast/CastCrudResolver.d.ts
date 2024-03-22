@@ -1,0 +1,35 @@
+import type { GraphQLResolveInfo } from "graphql";
+import { AggregateCastArgs } from "./args/AggregateCastArgs";
+import { CreateManyCastArgs } from "./args/CreateManyCastArgs";
+import { CreateOneCastArgs } from "./args/CreateOneCastArgs";
+import { DeleteManyCastArgs } from "./args/DeleteManyCastArgs";
+import { DeleteOneCastArgs } from "./args/DeleteOneCastArgs";
+import { FindFirstCastArgs } from "./args/FindFirstCastArgs";
+import { FindFirstCastOrThrowArgs } from "./args/FindFirstCastOrThrowArgs";
+import { FindManyCastArgs } from "./args/FindManyCastArgs";
+import { FindUniqueCastArgs } from "./args/FindUniqueCastArgs";
+import { FindUniqueCastOrThrowArgs } from "./args/FindUniqueCastOrThrowArgs";
+import { GroupByCastArgs } from "./args/GroupByCastArgs";
+import { UpdateManyCastArgs } from "./args/UpdateManyCastArgs";
+import { UpdateOneCastArgs } from "./args/UpdateOneCastArgs";
+import { UpsertOneCastArgs } from "./args/UpsertOneCastArgs";
+import { Cast } from "../../../models/Cast";
+import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
+import { AggregateCast } from "../../outputs/AggregateCast";
+import { CastGroupBy } from "../../outputs/CastGroupBy";
+export declare class CastCrudResolver {
+    aggregateCast(ctx: any, info: GraphQLResolveInfo, args: AggregateCastArgs): Promise<AggregateCast>;
+    createManyCast(ctx: any, info: GraphQLResolveInfo, args: CreateManyCastArgs): Promise<AffectedRowsOutput>;
+    createOneCast(ctx: any, info: GraphQLResolveInfo, args: CreateOneCastArgs): Promise<Cast>;
+    deleteManyCast(ctx: any, info: GraphQLResolveInfo, args: DeleteManyCastArgs): Promise<AffectedRowsOutput>;
+    deleteOneCast(ctx: any, info: GraphQLResolveInfo, args: DeleteOneCastArgs): Promise<Cast | null>;
+    findFirstCast(ctx: any, info: GraphQLResolveInfo, args: FindFirstCastArgs): Promise<Cast | null>;
+    findFirstCastOrThrow(ctx: any, info: GraphQLResolveInfo, args: FindFirstCastOrThrowArgs): Promise<Cast | null>;
+    casts(ctx: any, info: GraphQLResolveInfo, args: FindManyCastArgs): Promise<Cast[]>;
+    cast(ctx: any, info: GraphQLResolveInfo, args: FindUniqueCastArgs): Promise<Cast | null>;
+    getCast(ctx: any, info: GraphQLResolveInfo, args: FindUniqueCastOrThrowArgs): Promise<Cast | null>;
+    groupByCast(ctx: any, info: GraphQLResolveInfo, args: GroupByCastArgs): Promise<CastGroupBy[]>;
+    updateManyCast(ctx: any, info: GraphQLResolveInfo, args: UpdateManyCastArgs): Promise<AffectedRowsOutput>;
+    updateOneCast(ctx: any, info: GraphQLResolveInfo, args: UpdateOneCastArgs): Promise<Cast | null>;
+    upsertOneCast(ctx: any, info: GraphQLResolveInfo, args: UpsertOneCastArgs): Promise<Cast>;
+}

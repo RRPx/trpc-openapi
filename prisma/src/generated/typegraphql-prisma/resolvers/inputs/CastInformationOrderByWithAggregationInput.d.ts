@@ -1,0 +1,33 @@
+import { CastInformationAvgOrderByAggregateInput } from "../inputs/CastInformationAvgOrderByAggregateInput";
+import { CastInformationCountOrderByAggregateInput } from "../inputs/CastInformationCountOrderByAggregateInput";
+import { CastInformationMaxOrderByAggregateInput } from "../inputs/CastInformationMaxOrderByAggregateInput";
+import { CastInformationMinOrderByAggregateInput } from "../inputs/CastInformationMinOrderByAggregateInput";
+import { CastInformationSumOrderByAggregateInput } from "../inputs/CastInformationSumOrderByAggregateInput";
+import { SortOrderInput } from "../inputs/SortOrderInput";
+export declare class CastInformationOrderByWithAggregationInput {
+    id?: "asc" | "desc" | undefined;
+    cast_id?: "asc" | "desc" | undefined;
+    age?: SortOrderInput | undefined;
+    height?: SortOrderInput | undefined;
+    blood_type?: SortOrderInput | undefined;
+    personality?: SortOrderInput | undefined;
+    user_image_main?: "asc" | "desc" | undefined;
+    user_image_sub1?: SortOrderInput | undefined;
+    user_image_sub2?: SortOrderInput | undefined;
+    user_image_sub3?: SortOrderInput | undefined;
+    user_image_sub4?: SortOrderInput | undefined;
+    liquor?: SortOrderInput | undefined;
+    smoking?: SortOrderInput | undefined;
+    hobby?: SortOrderInput | undefined;
+    like_spot?: SortOrderInput | undefined;
+    self_introduction?: SortOrderInput | undefined;
+    pick_up?: "asc" | "desc" | undefined;
+    is_display?: "asc" | "desc" | undefined;
+    created_at?: "asc" | "desc" | undefined;
+    updated_at?: "asc" | "desc" | undefined;
+    _count?: CastInformationCountOrderByAggregateInput | undefined;
+    _avg?: CastInformationAvgOrderByAggregateInput | undefined;
+    _max?: CastInformationMaxOrderByAggregateInput | undefined;
+    _min?: CastInformationMinOrderByAggregateInput | undefined;
+    _sum?: CastInformationSumOrderByAggregateInput | undefined;
+}

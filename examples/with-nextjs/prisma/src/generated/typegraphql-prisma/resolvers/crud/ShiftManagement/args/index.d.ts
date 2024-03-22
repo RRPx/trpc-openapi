@@ -1,0 +1,14 @@
+export { AggregateShiftManagementArgs } from "./AggregateShiftManagementArgs";
+export { CreateManyShiftManagementArgs } from "./CreateManyShiftManagementArgs";
+export { CreateOneShiftManagementArgs } from "./CreateOneShiftManagementArgs";
+export { DeleteManyShiftManagementArgs } from "./DeleteManyShiftManagementArgs";
+export { DeleteOneShiftManagementArgs } from "./DeleteOneShiftManagementArgs";
+export { FindFirstShiftManagementArgs } from "./FindFirstShiftManagementArgs";
+export { FindFirstShiftManagementOrThrowArgs } from "./FindFirstShiftManagementOrThrowArgs";
+export { FindManyShiftManagementArgs } from "./FindManyShiftManagementArgs";
+export { FindUniqueShiftManagementArgs } from "./FindUniqueShiftManagementArgs";
+export { FindUniqueShiftManagementOrThrowArgs } from "./FindUniqueShiftManagementOrThrowArgs";
+export { GroupByShiftManagementArgs } from "./GroupByShiftManagementArgs";
+export { UpdateManyShiftManagementArgs } from "./UpdateManyShiftManagementArgs";
+export { UpdateOneShiftManagementArgs } from "./UpdateOneShiftManagementArgs";
+export { UpsertOneShiftManagementArgs } from "./UpsertOneShiftManagementArgs";

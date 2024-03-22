@@ -1,0 +1,33 @@
+import type { GraphQLResolveInfo } from "graphql";
+import { BankInformation } from "../../../models/BankInformation";
+import { Cast } from "../../../models/Cast";
+import { CastInformation } from "../../../models/CastInformation";
+import { Favorite } from "../../../models/Favorite";
+import { Notification } from "../../../models/Notification";
+import { OptionMaster } from "../../../models/OptionMaster";
+import { Reservation } from "../../../models/Reservation";
+import { Review } from "../../../models/Review";
+import { ShiftManagement } from "../../../models/ShiftManagement";
+import { User } from "../../../models/User";
+import { UserRank } from "../../../models/UserRank";
+import { CastBank_informationArgs } from "./args/CastBank_informationArgs";
+import { CastCast_informationArgs } from "./args/CastCast_informationArgs";
+import { CastFavoriteArgs } from "./args/CastFavoriteArgs";
+import { CastNotificationArgs } from "./args/CastNotificationArgs";
+import { CastOption_masterArgs } from "./args/CastOption_masterArgs";
+import { CastReservationArgs } from "./args/CastReservationArgs";
+import { CastReviewArgs } from "./args/CastReviewArgs";
+import { CastShift_managementArgs } from "./args/CastShift_managementArgs";
+import { CastUserArgs } from "./args/CastUserArgs";
+export declare class CastRelationsResolver {
+    user(cast: Cast, ctx: any, info: GraphQLResolveInfo, args: CastUserArgs): Promise<User | null>;
+    user_rank(cast: Cast, ctx: any, info: GraphQLResolveInfo): Promise<UserRank>;
+    favorite(cast: Cast, ctx: any, info: GraphQLResolveInfo, args: CastFavoriteArgs): Promise<Favorite[]>;
+    notification(cast: Cast, ctx: any, info: GraphQLResolveInfo, args: CastNotificationArgs): Promise<Notification[]>;
+    option_master(cast: Cast, ctx: any, info: GraphQLResolveInfo, args: CastOption_masterArgs): Promise<OptionMaster[]>;
+    shift_management(cast: Cast, ctx: any, info: GraphQLResolveInfo, args: CastShift_managementArgs): Promise<ShiftManagement[]>;
+    review(cast: Cast, ctx: any, info: GraphQLResolveInfo, args: CastReviewArgs): Promise<Review[]>;
+    cast_information(cast: Cast, ctx: any, info: GraphQLResolveInfo, args: CastCast_informationArgs): Promise<CastInformation | null>;
+    reservation(cast: Cast, ctx: any, info: GraphQLResolveInfo, args: CastReservationArgs): Promise<Reservation[]>;
+    bank_information(cast: Cast, ctx: any, info: GraphQLResolveInfo, args: CastBank_informationArgs): Promise<BankInformation[]>;
+}
